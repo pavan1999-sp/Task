@@ -1,0 +1,42 @@
+
+
+
+<div *ngIf="!selectddata" class="container mt-5">
+    <table class="table table-success table-striped ">
+        <thead>
+            <tr>
+                <th scope="col">Project-Id</th>
+                <th scope="col">Project_Name</th>
+                <th scope="col">Project-Head</th>
+                <th scope="col">Start Date</th>
+                <th scope="col">Actions</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let x of  projects" >
+                <th>{{x.projectId}}</th>
+                <th>{{x.projectName}}</th>
+                <th>{{x.projectHead}}</th>
+                <th>{{x.startDate}}</th>
+                <th>
+                    <button class="btn btn-success" (click)="editdata(x.projectId)"  > Update</button>
+                    &nbsp;
+                    <button class="btn btn-danger"  (click)="deletedata(x.projectId)"> delete</button>
+
+                </th>
+                
+
+            </tr>
+        
+
+        </tbody>
+        <tfoot>   <button type="button" routerLink="addproject" class="btn btn-primary m-5" >
+            Add Project
+          </button></tfoot>
+    </table>
+ 
+</div>
+<div *ngIf="selectddata" >
+<app-addproject [parentdata]="selectddata" ></app-addproject>
+</div>
